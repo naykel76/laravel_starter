@@ -12,11 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // # seed default package permissions (super, admin)
+        $this->call(\Naykel\Authit\Database\Seeders\RolesPermissionsSeeder::class);
+        // # optionally seed user
+        $this->call(\Naykel\Authit\Database\Seeders\UsersSeeder::class);
     }
 }

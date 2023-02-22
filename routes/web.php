@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 (new RouteCreator('nav-admin'))->create();
 
-// Route::middleware(['role:super|admin', 'auth'])->prefix('admin')->name('admin')->group(function () {
-//     Route::view('/', '/admin.dashboard')->name('');
-// });
+Route::middleware(['role:super|admin', 'auth'])->prefix('admin')->name('admin')->group(function () {
+    Route::view('/', 'gotime::admin.dashboard'); // admin dashboard
+    // Route::view('/account', 'admin.user-account')->name('.account'); // livewire component
+});
